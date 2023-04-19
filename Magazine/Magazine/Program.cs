@@ -12,17 +12,38 @@ namespace Magazine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите количество записей: ");
+            try
+            {
+                Console.WriteLine("Введите количество записей: ");
 
-            int size = Convert.ToInt32(Console.ReadLine());
+                int size = Convert.ToInt32(Console.ReadLine());
 
-            Newsstand ns = new Newsstand(size);
+                if (size < 1)
+                {
+                    Console.WriteLine("Необходима хотя бы 1 запись!");                   
+                }
 
-            Console.WriteLine($"Введите {size} записи");
-            ns.AddMagazine();
-            ns.ArrMagazine();
+                Newsstand ns = new Newsstand(size);
 
-            Console.ReadKey();
+                Console.WriteLine($"Введите {size} записи");
+                ns.AddMagazine();
+                ns.ArrMagazine();
+
+                Console.WriteLine("Отсортированные записи: ");
+                ns.Sort();
+                ns.ArrMagazine();
+
+                Console.WriteLine("Массив сохранен ");
+                ns.Save();
+
+                Console.ReadKey();
+            }
+            catch
+            {
+                Console.WriteLine("Ошибка");
+                Console.ReadKey();
+            }
+
         }
     }
     public class Magazine
@@ -85,7 +106,10 @@ namespace Magazine
     class Newsstand
     {
         private Magazine[] mass;
-        public Newsstand(int size) => mass = new Magazine[size];
+        public Newsstand(int size)
+        {
+            mass = new Magazine[size];
+        } 
 
         public void AddMagazine()
         {
@@ -119,9 +143,9 @@ namespace Magazine
                 Console.WriteLine($"Название: {magazine.Name} Цена: {magazine.Price} Издатель: {magazine.Publisher} Номер ISSN: {magazine.ISSN_Num}");
             
         }
-        private void Save()
+        public void Save()
         {
-            string path = $"{Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\\result.txt";
+            string path = $"{Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\\Result.txt";
             using (StreamWriter writer = new StreamWriter(File.Open(path, FileMode.Create)))
             {
                 foreach (Magazine magazine in mass)
@@ -129,5 +153,9 @@ namespace Magazine
             }
         }
 
+        public void Sort()
+        {
+            Array.Sort(mass, (x, y) => (x.Price + " " + x.Name).CompareTo(y.Price + " " + y.Name));
+        }
     }  
 }
