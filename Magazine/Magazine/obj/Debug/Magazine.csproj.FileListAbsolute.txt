@@ -1,0 +1,7 @@
+C:\Users\stu-pkspk219\Source\Repos\Magazine\Magazine\bin\Debug\Magazine.exe.config
+C:\Users\stu-pkspk219\Source\Repos\Magazine\Magazine\bin\Debug\Magazine.exe
+C:\Users\stu-pkspk219\Source\Repos\Magazine\Magazine\bin\Debug\Magazine.pdb
+C:\Users\stu-pkspk219\Source\Repos\Magazine\Magazine\obj\Debug\Magazine.csprojResolveAssemblyReference.cache
+C:\Users\stu-pkspk219\Source\Repos\Magazine\Magazine\obj\Debug\Magazine.csproj.CoreCompileInputs.cache
+C:\Users\stu-pkspk219\Source\Repos\Magazine\Magazine\obj\Debug\Magazine.exe
+C:\Users\stu-pkspk219\Source\Repos\Magazine\Magazine\obj\Debug\Magazine.pdb
