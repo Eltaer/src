@@ -41,5 +41,41 @@ public class CoursesControl
             }
         }
     }
+
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter number of courses:");
+            int numberOfCourses = int.Parse(Console.ReadLine());
+
+            Course[] courses = new Course[numberOfCourses];
+            for (int i = 0; i < numberOfCourses; i++)
+            {
+                Console.WriteLine($"Enter details for course {i + 1}:");
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
+                Console.Write("Price: ");
+                decimal price = decimal.Parse(Console.ReadLine());
+                Console.Write("Preparation Time (in minutes): ");
+                int preparationTime = int.Parse(Console.ReadLine());
+
+                courses[i] = new Course { Name = name, Price = price, PreparationTime = preparationTime };
+            }
+
+            Console.WriteLine("Enter file name to save courses:");
+            string fileName = Console.ReadLine();
+
+            CoursesControl control = new CoursesControl(courses);
+
+            control.SortCourses();
+            control.SaveCoursesToFile(fileName);
+
+            Console.WriteLine("Courses sorted and saved to file successfully!");
+            Console.ReadLine();
+        }
+
+
+    }
 }
 
