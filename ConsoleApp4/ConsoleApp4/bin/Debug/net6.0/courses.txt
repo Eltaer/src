@@ -1,4 +1,0 @@
-Margherita Pizza,9,99,15
-Pasta Carbonara,12,99,20
-Fish and Chips,15,99,25
-Steak Frites,22,99,30
